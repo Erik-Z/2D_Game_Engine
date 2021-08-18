@@ -18,6 +18,15 @@ class Color2(private var c: Color) {
         this.c = C
     }
 
+    override operator fun equals(obj: Any?): Boolean {
+        return when(obj){
+            is Color2 -> {
+                this.c == obj.getColor()
+            }
+            else -> false
+        }
+    }
+
     override fun toString(): String {
         return "R:${this.c.red}, G:${this.c.green}, B:${this.c.blue}, A:${this.c.alpha}"
     }
