@@ -30,6 +30,14 @@ class Vector2(private var vect: DoubleArray) {
         return this.vect[1]
     }
 
+    fun getXInt(): Int {
+        return this.vect[0].toInt()
+    }
+
+    fun getYInt(): Int {
+        return this.vect[1].toInt()
+    }
+
     /**
      * Sets the X value of the vector.
      * @param x The X value of the vector.
