@@ -1,15 +1,109 @@
 package baseAPIs
 
-class GameObj(var pos: Vector2, var w:Int, var h:Int, var isVisible: Boolean, var color: Color2, var hasParent: Boolean,
-              var parent: GameObj?, var name:String, var uid: String) {
-    constructor():this(Vector2(), 0, 0, true, Color2(), false, null, "", "")
-    constructor(name: String, ID: String):this(Vector2(), 0, 0, true, Color2(), false, null, name, ID)
-    constructor(x:Int, y:Int, W:Int, H: Int, isV: Boolean, c:Color2,):this(Vector2(x, y), W, H, isV, c, false, null, "", "")
-    constructor(W: Int, H: Int):this(Vector2(), W, H, true, Color2(), false, null, "", "")
-    constructor(x: Int, y: Int, W: Int, H: Int, isV: Boolean, c: Color2, name: String, ID: String):this(Vector2(x, y), W, H, isV, c, false, null, name, ID)
-    constructor(v: Vector2, W: Int, H: Int, isV: Boolean, c: Color2):this(v, W, H, isV, c, false, null, "", "")
-    constructor(v: Vector2, W: Int, H: Int, isV: Boolean, c: Color2, n: String, i: String):this(v, W, H, isV, c, false, null, n, i)
-    constructor(obj: GameObj):this(obj.getPosition(), obj.getWidth(), obj.getHeight(), obj.getIsVisible(), obj.getObjColor(), obj.getHasParent(), obj.getParent(), obj.getObjName(), obj.getID())
+open class GameObj {
+    var pos: Vector2
+    var w: Int
+    var h: Int
+    var isVisible: Boolean
+    var color: Color2?
+    var hasParent: Boolean
+    var parent: GameObj?
+    var name: String
+    var uid: String
+    constructor(){
+        this.pos = Vector2()
+        this.w = 0
+        this.h = 0
+        this.isVisible = true
+        this.color = Color2()
+        this.hasParent = false
+        this.parent = null
+        this.name = ""
+        this.uid = ""
+    }
+
+    constructor(name: String, ID: String){
+        this.pos = Vector2()
+        this.w = 0
+        this.h = 0
+        this.isVisible = true
+        this.color = Color2()
+        this.hasParent = false
+        this.parent = null
+        this.name = name
+        this.uid = ID
+    }
+
+    constructor(x: Int, y:Int, W:Int, H: Int, isV: Boolean, c:Color2){
+        this.pos = Vector2(x, y)
+        this.w = W
+        this.h = H
+        this.isVisible = isV
+        this.color = c
+        this.hasParent = false
+        this.parent = null
+        this.name = ""
+        this.uid = ""
+    }
+
+    constructor(W: Int, H: Int){
+        this.pos = Vector2();
+        this.w = W;
+        this.h = H;
+        this.isVisible = true
+        this.color = null
+        this.hasParent = false
+        this.parent = null
+        this.name = ""
+        this.uid = ""
+    }
+
+    constructor(x: Int, y: Int, W: Int, H: Int, isV: Boolean, c: Color2, name: String, ID: String){
+        this.pos = Vector2(x, y)
+        this.w = W
+        this.h = H
+        this.isVisible = isV
+        this.color = c
+        this.hasParent = false
+        this.parent = null
+        this.name = name
+        this.uid = ID
+    }
+
+    constructor(v: Vector2, W: Int, H: Int, isV: Boolean, c: Color2){
+        this.pos = v
+        this.w = W
+        this.h = H
+        this.isVisible = isV
+        this.color = c
+        this.hasParent = false
+        this.parent = null
+        this.name = ""
+        this.uid = ""
+    }
+    constructor(v: Vector2, W: Int, H: Int, isV: Boolean, c: Color2, n: String, i: String){
+        this.pos = v
+        this.w = W
+        this.h = H
+        this.isVisible = isV
+        this.color = c
+        this.hasParent = false
+        this.parent = null
+        this.name = n
+        this.uid = i
+    }
+
+    constructor(obj: GameObj) {
+        this.pos = obj.getPosition()
+        this.w = obj.getWidth()
+        this.h = obj.getHeight()
+        this.isVisible = obj.getIsVisible()
+        this.color = obj.getObjColor()
+        this.hasParent = obj.getHasParent()
+        this.parent = obj.getParent()
+        this.name = obj.getObjName()
+        this.uid = obj.getID()
+    }
 
     fun clone(): GameObj{
         return GameObj(this)
@@ -64,7 +158,7 @@ class GameObj(var pos: Vector2, var w:Int, var h:Int, var isVisible: Boolean, va
         this.pos = Vector2(x, y)
     }
 
-    fun getObjColor(): Color2 {
+    fun getObjColor(): Color2? {
         return this.color
     }
 
