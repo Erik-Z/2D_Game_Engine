@@ -21,7 +21,6 @@ class GameObj(var pos: Vector2, var w:Int, var h:Int, var isVisible: Boolean, va
         }
     }
 
-
     fun update(updateTick: Int, currentTimeMS: Long, msSinceLastFrame: Long): Boolean{
         if (this.getIsVisible()){
 
@@ -133,7 +132,19 @@ class GameObj(var pos: Vector2, var w:Int, var h:Int, var isVisible: Boolean, va
         return "GameObj: Name: ${this.getObjName()} ID: ${this.getID()} - ${this.getPosition()} HasParent: ${this.getHasParent()} Width: ${this.getWidth()} Height: ${this.getHeight()}"
     }
 
-    override fun equals(other: Any?): Boolean {
-        return super.equals(other)
+    override fun equals(obj: Any?): Boolean {
+        return when(obj){
+            is GameObj -> {
+                this.getHasParent() == obj.getHasParent() &&
+                this.getPosition() == obj.getPosition() &&
+                this.getWidth() == obj.getWidth() &&
+                this.getHeight() == obj.getHeight() &&
+                this.getObjColor() == obj.getObjColor() &&
+                this.getID() == obj.getID() &&
+                this.getObjName() == obj.getObjName() &&
+                this.getParent() == obj.getParent()
+            }
+            else -> false
+        }
     }
 }
