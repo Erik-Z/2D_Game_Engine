@@ -10,30 +10,42 @@ class Vector2(private var vect: DoubleArray) {
     constructor(x: Int):this(doubleArrayOf(x.toDouble(), x.toDouble()))
     constructor(v: Vector2):this(doubleArrayOf(v.getX(), v.getY()))
 
+    /**
+     * Gets the vector as a DoubleArray.
+     * @return the vector as a DoubleArray.
+     */
     fun getVector(): DoubleArray {
         return this.vect
     }
 
     /**
-     * Gets the X value of the vector.
-     * @return the X value of the vector
+     * Gets the X value of the vector as a Double.
+     * @return the X value of the vector as a Double.
      */
     fun getX(): Double {
         return this.vect[0]
     }
 
     /**
-     * Gets the Y value of the vector.
-     * @return the Y value of the vector
+     * Gets the Y value of the vector as a Double.
+     * @return the Y value of the vector as a Double
      */
     fun getY(): Double {
         return this.vect[1]
     }
 
+    /**
+     * Gets the X value of the vector as an Integer.
+     * @return the X value of the vector as an Integer
+     */
     fun getXInt(): Int {
         return this.vect[0].toInt()
     }
 
+    /**
+     * Gets the Y value of the vector as an Integer.
+     * @return the Y value of the vector as an Integer
+     */
     fun getYInt(): Int {
         return this.vect[1].toInt()
     }
@@ -54,26 +66,49 @@ class Vector2(private var vect: DoubleArray) {
         this.vect[1] = y
     }
 
+    /**
+     * Sets the X value of the vector.
+     * @param x The X value of the vector.
+     */
     fun setX(x: Float) {
         this.vect[0] = x.toDouble()
     }
 
+    /**
+     * Sets the Y value of the vector.
+     * @param y The Y value of the vector.
+     */
     fun setY(y: Float) {
         this.vect[1] = y.toDouble()
     }
 
+    /**
+     * Sets the X value of the vector.
+     * @param x The X value of the vector.
+     */
     fun setX(x: Int){
         this.vect[0] = x.toDouble()
     }
 
+    /**
+     * Sets the Y value of the vector.
+     * @param y The Y value of the vector.
+     */
     fun setY(y: Int){
         this.vect[0] = y.toDouble()
     }
 
+    /**
+     * Sets the value of the vector.
+     * @param v The value of the vector.
+     */
     fun setVector(v: DoubleArray){
         this.vect = v
     }
 
+    /**
+     * Returns a new instance of the current vector.
+     */
     fun clone(): Vector2 {
         return Vector2(this.vect[0], this.vect[1])
     }
