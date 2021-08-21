@@ -105,7 +105,7 @@ open class GameObj {
         this.uid = obj.getID()
     }
 
-    fun clone(): GameObj{
+    open fun clone(): GameObj{
         return GameObj(this)
     }
 
