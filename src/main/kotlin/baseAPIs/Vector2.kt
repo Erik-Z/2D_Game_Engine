@@ -51,6 +51,22 @@ class Vector2(private var vect: DoubleArray) {
     }
 
     /**
+     * Gets the X value of the vector as a Floating Point Value.
+     * @return the X value of the vector as a Floating Point Value
+     */
+    fun getXFloat(): Float {
+        return this.vect[0].toFloat()
+    }
+
+    /**
+     * Gets the Y value of the vector as a Floating Point Value.
+     * @return the Y value of the vector as a Floating Point Value
+     */
+    fun getYFloat(): Float {
+        return this.vect[1].toFloat()
+    }
+
+    /**
      * Sets the X value of the vector.
      * @param x The X value of the vector.
      */
