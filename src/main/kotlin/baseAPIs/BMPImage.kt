@@ -66,6 +66,14 @@ class BMPImage: GameObj {
         ID_SRC++
     }
 
+    override fun clone(): GameObj {
+        return BMPImage(this)
+    }
+
+    fun cloneTyped(): BMPImage {
+        return BMPImage(this)
+    }
+
     fun getIdStr(r: Float): String {
         return "${this.idStr}_${r}"
     }
